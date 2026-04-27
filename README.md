@@ -4,7 +4,7 @@
 
 ## 📥 Установка
 
-1. Скачайте последнюю версию плагина из [Releases](https://github.com/kusokmedi/donduration/releases)
+1. Скачайте последнюю версию плагина из [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
 2. Поместите `DonateDuration-6.7.jar` в папку `plugins` вашего сервера
 3. Убедитесь, что установлены зависимости:
    - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)
@@ -105,7 +105,7 @@ usage: "%prefix% &eИспользование: /dd reload"
 - **Версия:** 6.7
 - **Автор:** [KusokMedi](https://github.com/kusokmedi)
 - **Репозиторий:** [github.com/kusokmedi/donduration](https://github.com/kusokmedi/donduration)
-- **Сборка:** Готовые jar файлы доступны в [Releases](https://github.com/kusokmedi/donduration/releases)
+- **Сборка:** Готовые jar файлы доступны в [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
 
 ## 🛠️ Сборка из исходников
 
