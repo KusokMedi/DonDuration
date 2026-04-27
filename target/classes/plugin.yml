@@ -1,0 +1,14 @@
+name: DonateDuration
+version: 6.7
+main: com.kusokmedi.donateduration.DonateDuration
+api-version: '1.21'
+author: KusokMedi
+website: github.com/kusokmedi/donduration
+depend: [PlaceholderAPI]
+softdepend: [LuckPerms]
+
+commands:
+  donateduration:
+    description: Main plugin command
+    aliases: [dd]
+    usage: /donateduration [reload]

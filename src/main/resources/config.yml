@@ -1,0 +1,21 @@
+# DonateDuration | Конфигурация
+# Автор: KusokMedi
+# Сайт: github.com/kusokmedi/donduration
+
+# Имя плейсхолдера (по умолчанию: %donateduration%)
+placeholder-name: "donateduration"
+
+# Формат отображения плейсхолдера
+placeholder: "&7(%duration% %letter%)"
+
+# Обозначения единиц времени (полные названия)
+letters:
+  seconds: "сек."
+  minutes: "мин."
+  hours: "час."
+  days: "дн."
+  months: "мес."
+  years: "лет"
+
+# Символ бесконечности
+infinity-symbol: "&7∞"
