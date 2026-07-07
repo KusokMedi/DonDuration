@@ -1,11 +1,10 @@
 name: DonateDuration
-version: 1.2
+version: 1.2.1
 main: com.kusokmedi.donateduration.DonateDuration
 api-version: '1.16'
 author: KusokMedi
 website: github.com/kusokmedi/donduration
-depend: [PlaceholderAPI]
-softdepend: [LuckPerms]
+softdepend: [PlaceholderAPI, LuckPerms]
 
 commands:
   donateduration:

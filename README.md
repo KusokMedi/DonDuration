@@ -1,6 +1,6 @@
 # DonateDuration
 
-[![Version](https://img.shields.io/badge/version-1.2-blue.svg)](https://github.com/KusokMedi/DonDuration/releases)
+[![Version](https://img.shields.io/badge/version-1.2.1-blue.svg)](https://github.com/KusokMedi/DonDuration/releases)
 [![Minecraft](https://img.shields.io/badge/minecraft-1.16.5--1.26.2-green.svg)](https://www.spigotmc.org/)
 [![Java](https://img.shields.io/badge/java-21+-orange.svg)](https://www.oracle.com/java/)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
@@ -23,7 +23,7 @@
 ## 📥 Установка
 
 1. Скачайте последнюю версию плагина из [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
-2. Поместите `DonateDuration-1.2.jar` в папку `plugins` вашего сервера
+2. Поместите `DonateDuration-1.2.1.jar` в папку `plugins` вашего сервера
 3. Убедитесь, что установлены зависимости:
    - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)
    - [LuckPerms](https://luckperms.net/)
@@ -132,7 +132,7 @@ usage: "%prefix% &eИспользование: /dd reload"
 
 ## 📝 Информация
 
-- **Версия:** 1.2
+- **Версия:** 1.2.1
 - **Автор:** [KusokMedi](https://github.com/kusokmedi)
 - **Репозиторий:** [github.com/kusokmedi/donduration](https://github.com/kusokmedi/donduration)
 - **Сборка:** Готовые jar файлы доступны в [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
@@ -147,7 +147,7 @@ cd donduration
 mvn clean package
 ```
 
-Готовый jar файл будет в папке `target/DonateDuration-1.2.jar`
+Готовый jar файл будет в папке `target/DonateDuration-1.2.1.jar`
 
 ## 📄 Лицензия
 
