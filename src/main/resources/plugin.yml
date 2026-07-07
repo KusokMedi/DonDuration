@@ -1,7 +1,7 @@
 name: DonateDuration
 version: ${project.version}
 main: com.kusokmedi.donateduration.DonateDuration
-api-version: '1.21'
+api-version: '1.16'
 author: KusokMedi
 website: github.com/kusokmedi/donduration
 depend: [PlaceholderAPI]

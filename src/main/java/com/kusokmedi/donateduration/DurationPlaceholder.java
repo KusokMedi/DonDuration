@@ -10,9 +10,27 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class DurationPlaceholder extends PlaceholderExpansion {
     private final DonateDuration plugin;
+    private final Map<UUID, CachedResult> cache = new ConcurrentHashMap<>();
+    
+    private static class CachedResult {
+        final String value;
+        final long expireAt;
+        
+        CachedResult(String value, long expireAt) {
+            this.value = value;
+            this.expireAt = expireAt;
+        }
+        
+        boolean isExpired() {
+            return System.currentTimeMillis() > expireAt;
+        }
+    }
 
     public DurationPlaceholder(DonateDuration plugin) {
         this.plugin = plugin;
@@ -33,7 +51,7 @@ public class DurationPlaceholder extends PlaceholderExpansion {
     @Override
     @NotNull
     public String getVersion() {
-        return "6.7";
+        return plugin.getDescription().getVersion();
     }
 
     @Override
@@ -45,18 +63,53 @@ public class DurationPlaceholder extends PlaceholderExpansion {
     public String onRequest(OfflinePlayer player, @NotNull String params) {
         if (player == null) return "";
 
+        // Проверка кэша
+        boolean cacheEnabled = plugin.getConfig().getBoolean("cache.enabled", true);
+        if (cacheEnabled) {
+            CachedResult cached = cache.get(player.getUniqueId());
+            if (cached != null && !cached.isExpired()) {
+                if (plugin.getConfig().getBoolean("debug", false)) {
+                    plugin.getLogger().info("Cache hit for player: " + player.getName());
+                }
+                return cached.value;
+            }
+        }
+
         long duration = getDonateTime(player);
+        String result;
         
         if (duration < 0) {
-            return plugin.getConfig().getString("infinity-symbol", "∞");
+            result = plugin.getConfig().getString("infinity-symbol", "∞");
+        } else if (duration <= 0) {
+            result = "0";
+        } else {
+            String format = plugin.getConfig().getString("placeholder", "%duration%%letter%");
+            String[] parts = calculateDuration(duration);
+            result = format.replace("%duration%", parts[0]).replace("%letter%", parts[1]);
+        }
+
+        // Сохранение в кэш
+        if (cacheEnabled) {
+            long ttl = plugin.getConfig().getLong("cache.ttl", 60) * 1000;
+            cache.put(player.getUniqueId(), new CachedResult(result, System.currentTimeMillis() + ttl));
+            
+            // Очистка старых записей
+            int maxSize = plugin.getConfig().getInt("cache.max-size", 1000);
+            if (cache.size() > maxSize) {
+                cache.entrySet().removeIf(entry -> entry.getValue().isExpired());
+            }
+            
+            if (plugin.getConfig().getBoolean("debug", false)) {
+                plugin.getLogger().info("Cache miss for player: " + player.getName() + ", cached result: " + result);
+            }
         }
         
-        if (duration <= 0) return "0";
+        return result;
+    }
 
-        String format = plugin.getConfig().getString("placeholder", "%duration%%letter%");
-        String[] parts = calculateDuration(duration);
-        
-        return format.replace("%duration%", parts[0]).replace("%letter%", parts[1]);
+    public void clearCache() {
+        cache.clear();
+        plugin.getLogger().info("Cache cleared!");
     }
 
     private long getDonateTime(OfflinePlayer player) {
@@ -65,11 +118,18 @@ public class DurationPlaceholder extends PlaceholderExpansion {
             User user = luckPerms.getUserManager().getUser(player.getUniqueId());
             
             if (user == null) {
+                if (plugin.getConfig().getBoolean("debug", false)) {
+                    plugin.getLogger().warning("User not found in LuckPerms: " + player.getName());
+                }
                 return 0;
             }
             
             // Получаем primary группу
             String primaryGroup = user.getPrimaryGroup();
+            
+            if (plugin.getConfig().getBoolean("debug", false)) {
+                plugin.getLogger().info("Primary group for " + player.getName() + ": " + primaryGroup);
+            }
             
             // Ищем ноду с этой группой
             for (Node node : user.getNodes()) {
@@ -90,7 +150,10 @@ public class DurationPlaceholder extends PlaceholderExpansion {
             // Если primary группа не найдена или нет срока - 0
             return 0;
         } catch (Exception e) {
-            plugin.getLogger().warning("Error getting donate time: " + e.getMessage());
+            plugin.getLogger().warning("Error getting donate time for " + player.getName() + ": " + e.getMessage());
+            if (plugin.getConfig().getBoolean("debug", false)) {
+                e.printStackTrace();
+            }
             return 0;
         }
     }

@@ -1,11 +1,29 @@
 # DonateDuration
 
-Плагин для Spigot 1.21.x, который отображает оставшееся время донат-статуса игрока через PlaceholderAPI, используя данные из LuckPerms.
+[![Version](https://img.shields.io/badge/version-1.2-blue.svg)](https://github.com/KusokMedi/DonDuration/releases)
+[![Minecraft](https://img.shields.io/badge/minecraft-1.16.5--1.26.2-green.svg)](https://www.spigotmc.org/)
+[![Java](https://img.shields.io/badge/java-21+-orange.svg)](https://www.oracle.com/java/)
+[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+[![bStats](https://img.shields.io/badge/bstats-metrics-brightgreen.svg)](https://bstats.org/plugin/bukkit/DonateDuration/23744)
+
+Плагин для Spigot 1.16.5 - 1.26.2, который отображает оставшееся время донат-статуса игрока через PlaceholderAPI, используя данные из LuckPerms.
+
+## ✨ Возможности
+
+- 📊 **Отображение оставшегося времени донат-статуса** через PlaceholderAPI
+- 🔄 **Автоматическое определение primary группы** из LuckPerms
+- ⚡ **Система кэширования** для снижения нагрузки (настраиваемая)
+- 🎨 **Полная настройка формата** отображения времени
+- 🌍 **Локализация** букв единиц времени
+- 🐛 **Debug режим** для детального логирования
+- 📈 **bStats метрики** для статистики использования
+- ✅ **Автоматическая проверка зависимостей** при запуске
+- 🔧 **Перезагрузка конфигурации** без перезапуска сервера
 
 ## 📥 Установка
 
 1. Скачайте последнюю версию плагина из [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
-2. Поместите `DonateDuration-6.7.jar` в папку `plugins` вашего сервера
+2. Поместите `DonateDuration-1.2.jar` в папку `plugins` вашего сервера
 3. Убедитесь, что установлены зависимости:
    - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)
    - [LuckPerms](https://luckperms.net/)
@@ -34,6 +52,18 @@ letters:
 
 # Символ бесконечности (для постоянных групп)
 infinity-symbol: "∞"
+
+# Настройки кэширования
+cache:
+  # Включить кэширование результатов (рекомендуется: true)
+  enabled: true
+  # Время жизни кэша в секундах (по умолчанию: 60)
+  ttl: 60
+  # Максимальный размер кэша (по умолчанию: 1000)
+  max-size: 1000
+
+# Режим отладки (подробное логирование)
+debug: false
 ```
 
 ### messages.yml
@@ -93,7 +123,7 @@ usage: "%prefix% &eИспользование: /dd reload"
 
 ## 🔧 Требования
 
-- **Minecraft:** 1.21.x
+- **Minecraft:** 1.16.5 - 1.26.2
 - **Сервер:** Spigot / Paper
 - **Java:** 21+
 - **Зависимости:**
@@ -102,7 +132,7 @@ usage: "%prefix% &eИспользование: /dd reload"
 
 ## 📝 Информация
 
-- **Версия:** 6.7
+- **Версия:** 1.2
 - **Автор:** [KusokMedi](https://github.com/kusokmedi)
 - **Репозиторий:** [github.com/kusokmedi/donduration](https://github.com/kusokmedi/donduration)
 - **Сборка:** Готовые jar файлы доступны в [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
@@ -117,7 +147,7 @@ cd donduration
 mvn clean package
 ```
 
-Готовый jar файл будет в папке `target/DonateDuration-6.7.jar`
+Готовый jar файл будет в папке `target/DonateDuration-1.2.jar`
 
 ## 📄 Лицензия
 
