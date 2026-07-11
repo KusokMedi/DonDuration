@@ -134,7 +134,7 @@ usage: "%prefix% &eИспользование: /dd reload"
 
 - **Версия:** 1.2.1
 - **Автор:** [KusokMedi](https://github.com/kusokmedi)
-- **Репозиторий:** [github.com/kusokmedi/donduration](https://github.com/kusokmedi/donduration)
+- **Репозиторий:** [github.com/KusokMedi/DonDuration](https://github.com/kusokmedi/donduration)
 - **Сборка:** Готовые jar файлы доступны в [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
 
 ## 🛠️ Сборка из исходников
