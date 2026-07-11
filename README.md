@@ -124,7 +124,7 @@ usage: "%prefix% &eИспользование: /dd reload"
 ## 🔧 Требования
 
 - **Minecraft:** 1.16.5 - 26.2
-- **Сервер:** Spigot / Paper
+- **Сервер:** Spigot / Paper / Purpur / LeafMC
 - **Java:** 21+
 - **Зависимости:**
   - PlaceholderAPI
