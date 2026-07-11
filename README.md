@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![bStats](https://img.shields.io/badge/bstats-metrics-brightgreen.svg)](https://bstats.org/plugin/bukkit/DonateDuration/23744)
 
-Плагин для Spigot 1.16.5 - 1.26.2, который отображает оставшееся время донат-статуса игрока через PlaceholderAPI, используя данные из LuckPerms.
+Плагин для Spigot 1.16.5 - 26.2, который отображает оставшееся время донат-статуса игрока через PlaceholderAPI, используя данные из LuckPerms.
 
 ## ✨ Возможности
 
@@ -123,7 +123,7 @@ usage: "%prefix% &eИспользование: /dd reload"
 
 ## 🔧 Требования
 
-- **Minecraft:** 1.16.5 - 1.26.2
+- **Minecraft:** 1.16.5 - 26.2
 - **Сервер:** Spigot / Paper
 - **Java:** 21+
 - **Зависимости:**
