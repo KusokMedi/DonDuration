@@ -1,7 +1,7 @@
 # DonateDuration
 
 [![Version](https://img.shields.io/badge/version-1.2.1-blue.svg)](https://github.com/KusokMedi/DonDuration/releases)
-[![Minecraft](https://img.shields.io/badge/minecraft-1.16.5--1.26.2-green.svg)](https://www.spigotmc.org/)
+[![Minecraft](https://img.shields.io/badge/minecraft-1.16.5--26.2-green.svg)](https://www.spigotmc.org/)
 [![Java](https://img.shields.io/badge/java-21+-orange.svg)](https://www.oracle.com/java/)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![bStats](https://img.shields.io/badge/bstats-metrics-brightgreen.svg)](https://bstats.org/plugin/bukkit/DonateDuration/23744)
