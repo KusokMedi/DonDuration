@@ -4,155 +4,154 @@
 [![Minecraft](https://img.shields.io/badge/minecraft-1.16.5--26.2-green.svg)](https://www.spigotmc.org/)
 [![Java](https://img.shields.io/badge/java-11+-orange.svg)](https://www.oracle.com/java/)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
-[![bStats](https://img.shields.io/badge/bstats-metrics-brightgreen.svg)](https://bstats.org/plugin/bukkit/DonateDuration/23744)
 
-Плагин для Spigot 1.16.5 - 26.2, который отображает оставшееся время донат-статуса игрока через PlaceholderAPI, используя данные из LuckPerms.
+A Spigot 1.16.5 - 26.2 plugin that displays remaining donation status time via PlaceholderAPI, using data from LuckPerms.
 
-## ✨ Новое в версии 2.0
+## ✨ New in version 2.0
 
-- 🔧 **Исправлены все критические баги** - Memory leak, thread safety, конвертация цветов
-- 🔒 **Плейсхолдер зафиксирован** - %donduration% больше нельзя изменить
-- 📦 **build.sh скрипт** - Автоматическая сборка с проверкой зависимостей
-- ⚡ **Асинхронная очистка кэша** - Не влияет на производительность сервера
-- 🐛 **Улучшена обработка ошибок** - Детальные debug сообщения
-- ✅ **Java 11+ совместимость** - Работает со всеми версиями 1.16.5-26.2+
+- 🔧 **All critical bugs fixed** - Memory leak, thread safety, color conversion
+- 🔒 **Placeholder fixed** - %donduration% can no longer be changed
+- 📦 **build.sh script** - Automatic build with dependency checking
+- ⚡ **Asynchronous cache cleanup** - Does not affect server performance
+- 🐛 **Error handling improved** - Detailed debug messages
+- ✅ **Java 11+ compatibility** - Works with all 1.16.5-26.2+ versions
 
-Подробнее об изменениях: [VERSION_2.0_CHANGES.md](VERSION_2.0_CHANGES.md)
+More about changes: [VERSION_2.0_CHANGES.md](VERSION_2.0_CHANGES.md)
 
-## ✨ Возможности
+## ✨ Features
 
-- 📊 **Отображение оставшегося времени донат-статуса** через PlaceholderAPI
-- 🔄 **Автоматическое определение primary группы** из LuckPerms
-- ⚡ **Система кэширования** для снижения нагрузки (настраиваемая)
-- 🎨 **Полная настройка формата** отображения времени
-- 🌍 **Локализация** букв единиц времени
-- 🐛 **Debug режим** для детального логирования
-- 📈 **bStats метрики** для статистики использования
-- ✅ **Автоматическая проверка зависимостей** при запуске
-- 🔧 **Перезагрузка конфигурации** без перезапуска сервера
+- 📊 **Display remaining donation status** via PlaceholderAPI
+- 🔄 **Automatic primary group detection** from LuckPerms
+- ⚡ **Caching system** to reduce load (configurable)
+- 🎨 **Full display format customization**
+- 🌍 **Time unit localization**
+- 🐛 **Debug mode** for detailed logging
+- 📈 **bStats metrics** for usage statistics
+- ✅ **Automatic dependency check** on startup
+- 🔧 **Configuration reload** without server restart
 
-## 📥 Установка
+## 📥 Installation
 
-1. Скачайте последнюю версию плагина из [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
-2. Поместите `DonateDuration-2.0.jar` в папку `plugins` вашего сервера
-3. Убедитесь, что установлены зависимости:
+1. Download the latest plugin version from [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
+2. Place `DonateDuration-2.0.jar` in your server's `plugins` folder
+3. Make sure dependencies are installed:
    - [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)
    - [LuckPerms](https://luckperms.net/)
-4. Перезапустите сервер
+4. Restart the server
 
-## ⚙️ Настройка
+## ⚙️ Configuration
 
 ### config.yml
 ```yaml
-# Имя placeholder (по умолчанию: donateduration)
+# Placeholder name (default: donateduration)
 placeholder-name: "donateduration"
 
-# Формат отображения
-# %duration% - значение времени
-# %letter% - буква единицы времени
+# Display format
+# %duration% - time value
+# %letter% - time unit letter
 placeholder: "%duration%%letter%"
 
-# Буквы для единиц времени
+# Time unit letters
 letters:
-  seconds: "сек"
-  minutes: "мин"
-  hours: "час"
-  days: "д"
-  months: "мес"
-  years: "г"
+  seconds: "sek"
+  minutes: "min"
+  hours: "hour"
+  days: "d"
+  months: "mes"
+  years: "g"
 
-# Символ бесконечности (для постоянных групп)
+# Infinity symbol (for permanent groups)
 infinity-symbol: "∞"
 
-# Настройки кэширования
+# Cache settings
 cache:
-  # Включить кэширование результатов (рекомендуется: true)
+  # Enable result caching (recommended: true)
   enabled: true
-  # Время жизни кэша в секундах (по умолчанию: 60)
+  # Cache TTL in seconds (default: 60)
   ttl: 60
-  # Максимальный размер кэша (по умолчанию: 1000)
+  # Maximum cache size (default: 1000)
   max-size: 1000
 
-# Режим отладки (подробное логирование)
+# Debug mode (detailed logging)
 debug: false
 ```
 
 ### messages.yml
 ```yaml
 prefix: "&8[&6DonateDuration&8]&r"
-reload-success: "%prefix% &aКонфигурация успешно перезагружена!"
-no-permission: "%prefix% &cУ вас нет прав для использования этой команды!"
-usage: "%prefix% &eИспользование: /dd reload"
+reload-success: "%prefix% &aConfig successfully reloaded!"
+no-permission: "%prefix% &cYou don't have permission to use this command!"
+usage: "%prefix% &eUsage: /dd reload"
 ```
 
-## 🎮 Использование
+## 🎮 Usage
 
 ### Placeholder
-Используйте `%donateduration%` (или другое имя из `placeholder-name`) в любом плагине, поддерживающем PlaceholderAPI.
+Use `%donateduration%` (or another name from `placeholder-name`) in any PlaceholderAPI-supported plugin.
 
-**Примеры:**
-- В табе (TAB)
-- В скорборде
-- В чате
-- В hologram плагинах
+**Examples:**
+- In TAB
+- In scoreboard
+- In chat
+- In hologram plugins
 
-### Как работает
-Плагин автоматически определяет оставшееся время донат-статуса на основе **primary группы** игрока в LuckPerms:
+### How it works
+The plugin automatically determines the remaining donation status time based on the player's **primary group** in LuckPerms:
 
-- Если primary группа выдана временно → показывает оставшееся время (например: `30д`, `5час`, `15мин`)
-- Если primary группа постоянная → показывает символ бесконечности `∞`
-- Если нет данных → показывает `0`
+- If primary group is temporary → shows remaining time (e.g.: `30d`, `5hour`, `15min`)
+- If primary group is permanent → shows infinity symbol `∞`
+- If no data available → shows `0`
 
-**Пример настройки в LuckPerms:**
+**LuckPerms setup example:**
 ```bash
-# Выдать временную группу на 30 дней
+# Give temporary group for 30 days
 /lp user Player parent settemp vip 30d
 
-# Установить как primary группу
+# Set as primary group
 /lp user Player parent set vip
 ```
 
-### Команды
-- `/donateduration` или `/dd` - главная команда
-- `/dd reload` - перезагрузить конфигурацию
-- `/dd help` - показать справку по командам
+### Commands
+- `/donateduration` or `/dd` - main command
+- `/dd reload` - reload configuration
+- `/dd help` - show command help
 
-### Права
-- `donateduration.reload` - право на перезагрузку конфигурации
-- `donateduration.admin` - доступ ко всем командам (включает reload)
+### Permissions
+- `donateduration.reload` - permission to reload configuration
+- `donateduration.admin` - access to all commands (includes reload)
 
-## 📋 Примеры отображения
+## 📋 Display examples
 
-| Оставшееся время | Отображение |
-|------------------|-------------|
-| 365 дней         | `1г`        |
-| 90 дней          | `3мес`      |
-| 7 дней           | `7д`        |
-| 12 часов         | `12час`     |
-| 45 минут         | `45мин`     |
-| 30 секунд        | `30сек`     |
-| Постоянная группа| `∞`         |
-| Нет группы       | `0`         |
+| Remaining time | Display |
+|----------------|---------|
+| 365 days       | `1g`    |
+| 90 days        | `3mes`  |
+| 7 days         | `7d`    |
+| 12 hours       | `12hour`|
+| 45 minutes     | `45min` |
+| 30 seconds     | `30sek` |
+| Permanent group| `∞`     |
+| No group       | `0`     |
 
-## 🔧 Требования
+## 🔧 Requirements
 
 - **Minecraft:** 1.16.5 - 26.2
-- **Сервер:** Spigot / Paper / Purpur / LeafMC
+- **Server:** Spigot / Paper / Purpur / LeafMC
 - **Java:** 11+
-- **Зависимости:**
+- **Dependencies:**
   - PlaceholderAPI
   - LuckPerms
 
-## 📝 Информация
+## 📝 Information
 
-- **Версия:** 2.0
-- **Автор:** [KusokMedi](https://github.com/kusokmedi)
-- **Репозиторий:** [github.com/KusokMedi/DonDuration](https://github.com/kusokmedi/donduration)
-- **Сборка:** Готовые **.jar** файлы доступны в [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
+- **Version:** 2.0
+- **Author:** [KusokMedi](https://github.com/kusokmedi)
+- **Repository:** [github.com/KusokMedi/DonDuration](https://github.com/kusokmedi/donduration)
+- **Build:** Ready **.jar** files available in [Releases](https://github.com/KusokMedi/DonDuration/releases/tag/Stable)
 
-## 🛠️ Сборка из исходников
+## 🛠️ Building from source
 
-Если вы хотите собрать плагин самостоятельно:
+If you want to build the plugin yourself:
 
 ```bash
 git clone https://github.com/kusokmedi/donduration.git
@@ -160,14 +159,14 @@ cd donduration
 ./build.sh
 ```
 
-Или через Maven напрямую:
+Or directly via Maven:
 
 ```bash
 mvn clean package
 ```
 
-Готовый jar файл будет в папке `target/DonateDuration-2.0.jar`
+Ready jar file will be in `target/DonateDuration-2.0.jar`
 
-## 📄 Лицензия
+## 📄 License
 
-Этот проект имеет MIT лицензию
+This project is licensed under MIT
