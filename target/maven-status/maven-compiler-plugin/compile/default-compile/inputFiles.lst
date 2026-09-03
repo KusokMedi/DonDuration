@@ -1,4 +1,5 @@
-/home/kusokmedi/Документы/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/DonateDuration.java
-/home/kusokmedi/Документы/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/DurationCommand.java
-/home/kusokmedi/Документы/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/DurationPlaceholder.java
-/home/kusokmedi/Документы/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/DurationTabCompleter.java
+/home/kusokmedi/Documents/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/DurationTabCompleter.java
+/home/kusokmedi/Documents/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/DurationPlaceholder.java
+/home/kusokmedi/Documents/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/DonateDuration.java
+/home/kusokmedi/Documents/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/DurationCommand.java
+/home/kusokmedi/Documents/GitHub/DonDuration/src/main/java/com/kusokmedi/donateduration/ChatColorUtil.java

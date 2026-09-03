@@ -1,7 +1,9 @@
 # DonateDuration Messages
 # Author: KusokMedi
+# GitHub: github.com/kusokmedi/donduration
 
 prefix: "&8[&6DonateDuration&8]&r"
 reload-success: "%prefix% &aКонфигурация успешно перезагружена!"
 no-permission: "%prefix% &cУ вас нет прав для использования этой команды!"
-usage: "%prefix% &eИспользование: /dd reload"
+unknown-command: "%prefix% &cНеизвестная команда! Используй &e/dd help"
+reload-error: "%prefix% &cОшибка при перезагрузке конфигурации!"

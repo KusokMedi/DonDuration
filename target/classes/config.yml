@@ -1,23 +1,26 @@
 # DonateDuration | Конфигурация
 # Автор: KusokMedi
-# Сайт: github.com/kusokmedi/donduration
+# Репозиторий: github.com/kusokmedi/donduration
+# Совместимость: 1.16.5 - 26.2+
 
-# Имя плейсхолдера (по умолчанию: %donateduration%)
-placeholder-name: "donateduration"
+# Плейсхолдер: %donduration% (НЕИЗМЕНЯЕМЫЙ - нельзя менять)
+# Используй %donduration% в любом плагине с PlaceholderAPI
 
 # Формат отображения плейсхолдера
+# %duration% - числовое значение
+# %letter% - буква единицы времени
 placeholder: "&7(%duration% %letter%)"
 
-# Обозначения единиц времени (полные названия)
+# Обозначения единиц времени
 letters:
-  seconds: "сек."
-  minutes: "мин."
-  hours: "час."
-  days: "дн."
-  months: "мес."
-  years: "лет"
+  seconds: "сек"
+  minutes: "мин"
+  hours: "час"
+  days: "д"
+  months: "мес"
+  years: "г"
 
-# Символ бесконечности
+# Символ бесконечности (для постоянных групп)
 infinity-symbol: "&7∞"
 
 # Настройки кэширования
@@ -28,6 +31,8 @@ cache:
   ttl: 60
   # Максимальный размер кэша (по умолчанию: 1000)
   max-size: 1000
+  # Интервал очистки истёкших записей в секундах (по умолчанию: 300 = 5 минут)
+  cleanup-interval: 300
 
 # Режим отладки (подробное логирование)
 debug: false
